@@ -13,6 +13,8 @@ function mainCheck()
 
 	$db = dbConnect();
 
+	$_POST = json_decode(file_get_contents("php://input"), true);
+
 	// X Couldn't connect
 	checkpoint(!$db->connect_error, "Database Connection Failed", $db->connect_error);
 
