@@ -28,4 +28,4 @@ $query->bind_param("i", $clubID);
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return all chats from region
-echo json_encode($query->get_result()->fetch_all(MYSQLI_ASSOC));
+echo json_encode(array("response"=>$query->get_result()->fetch_all(MYSQLI_ASSOC), "error"=>false);

@@ -2,9 +2,9 @@
 
 function error_json(...$messages)
 {
-	$data = array("error" => array());
+	$data = array("response" => array(), "error"=>true);
 	foreach ($messages as $msg) {
-		array_push($data["error"], $msg);
+		array_push($data["response"], $msg);
 	}
 	return json_encode($data);
 }
