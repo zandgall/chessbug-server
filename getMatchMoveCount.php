@@ -7,7 +7,7 @@ $db = mainCheck();
 checkpoint(isset($_POST["match"]), "Provide match ID integer to get messages from!");
 
 // Gather all messages from given chat
-$query = $db->prepare("SELECT COUNT(*) FROM `ChessMatchMoves` WHERE `MatchID` = ?");
+$query = $db->prepare("SELECT COUNT(*) FROM `ChessMatchMoves` WHERE `ChessMatchID` = ?");
 $query->bind_param("i", $_POST["match"]);
 
 // X Query failed
