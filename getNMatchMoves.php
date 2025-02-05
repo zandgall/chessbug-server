@@ -10,7 +10,7 @@ checkpoint(isset($_POST["match"]), "Provide match ID integer to get messages fro
 checkpoint(isset($_POST["num"]), "Provide number of moves to retrieve!");
 
 // Gather all messages from given chat
-$query = $db->prepare("SELECT MoveNum, Move FROM `ChessMatchMoves` ORDER BY MoveNum WHERE ChessMatchID = ?");
+$query = $db->prepare("SELECT MoveNum, Move FROM `ChessMatchMoves` WHERE ChessMatchID = ? ORDER BY MoveNum");
 $query->bind_param("i", $_POST["match"]);
 
 // X Query failed
