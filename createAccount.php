@@ -37,4 +37,4 @@ $query->bind_param("sss", $_POST["username"], $_POST["email"], $_POST["password"
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return true
-echo json_encode(array("response"=>true, "error"=>false, "message"=>"Account created successfully!");
+echo json_encode(array("response" => true, "error" => false, "message" => "Account created successfully!"));

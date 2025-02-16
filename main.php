@@ -30,7 +30,7 @@ function mainCheck()
 
 	// X No user with given username and password (sleep so that spamming this query takes too long to brute force things)
 	if ($login_check->get_result()->num_rows != 1) {
-		sleep(5);
+		sleep(1);
 		die(error_json("Could not verify user details. Please try again."));
 	}
 

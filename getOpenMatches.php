@@ -7,7 +7,7 @@ $query = $db->prepare(
 	"SELECT m.MatchID, m.Chat, m.WhitePlayer, u1.Name as WhiteName, m.BlackPlayer, u2.Name as BlackName, m.Result FROM `ChessMatch` AS m
 	INNER JOIN `User` AS u1 ON (m.WhitePlayer = u1.UserID)
 	INNER JOIN `User` AS u2 ON (m.BlackPlayer = u2.UserID)
-	WHERE u1.Name = ? OR u2.Name = ?"
+	WHERE (u1.Name = ? OR u2.Name = ?) AND m.Result = \"InProgress\""
 );
 
 $query->bind_param("ss", $_POST["username"], $_POST["username"]);
