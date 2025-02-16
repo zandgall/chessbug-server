@@ -3,8 +3,8 @@ include "main.php";
 
 $db = mainCheck();
 
-// Update the result of a match
-$query = $db->prepare("UPDATE `ChessMatch` SET Result=? WHERE MatchID = ?");
+// Update the status of a match
+$query = $db->prepare("UPDATE `ChessMatch` SET Status=? WHERE MatchID = ?");
 $query->bind_param("si", $_POST["result"], $_POST["match"]);
 
 // X Query failed
