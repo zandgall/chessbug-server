@@ -7,7 +7,7 @@ $db = mainCheck();
 checkpoint(isset($_POST["image"]), "Provide image data!");
 
 // X Image under 10mb
-checkpoint(strlen($_POST["image"]) * (3 / 4) > 10000000, "Image Too Big!");
+checkpoint(strlen($_POST["image"]) * (3.0 / 4.0) < 10000000, "Image Too Big!", strlen($_POST["image"]) * (3.0 / 4.0), ">", "10000000");
 
 // Decode image
 $img = base64_decode($_POST["image"]);

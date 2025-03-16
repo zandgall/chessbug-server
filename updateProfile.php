@@ -4,12 +4,14 @@ include "main.php";
 
 $db = mainCheck();
 
-// X Wasn't provided an email
-checkpoint(isset($_POST["content"]), "Provide a message!");
+// X Wasn't provided the right details
+checkpoint(isset($_POST["newUsername"]), "Provide a new username!");
+checkpoint(isset($_POST["newPassword"]), "Provide a new password!");
+checkpoint(isset($_POST["newEmail"]), "Provide a new email!");
 
 // Insert message
-$query = $db->prepare("UPDATE `User` SET `Name` = ?, `Password` = ?, `Email` = ?)");
-$query->bind_param("sss", $_POST["username"], $_POST["password"], $_POST["email"]);
+$query = $db->prepare("UPDATE `User` SET `Name` = ?, `Password` = ?, `EmailAddress` = ? WHERE `Name` = ? AND `Password` = ?");
+$query->bind_param("sssss", $_POST["newUsername"], $_POST["newPassword"], $_POST["newEmail"], $_POST["username"], $_POST["password"]);
 
 // X Query failed
 checkpoint($query->execute(), "Database Query Failed", $query->error);

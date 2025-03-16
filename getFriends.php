@@ -4,7 +4,7 @@ $db = mainCheck();
 
 // Gather all friends current user has
 $query = $db->prepare(
-	"SELECT u2.UserID, u2.Name, f.Chat FROM `Friends` AS f
+	"SELECT u2.UserID, u2.Name, u2.pfp, f.Chat FROM `Friends` AS f
 	INNER JOIN `User` AS u ON (f.User1 = u.UserID OR f.User2 = u.UserID) AND u.Name = ?
 	INNER JOIN `User` AS u2 ON (f.User1 = u2.UserID OR f.User2 = u2.UserID) AND u2.UserID != u.UserID
 	WHERE f.RequestStatus = \"ACCEPTED\""
