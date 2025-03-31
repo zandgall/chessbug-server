@@ -11,4 +11,4 @@ $query->bind_param("i", $_POST["match"]);
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return all chats from region
-echo json_encode(array("response" => $query->get_result()->fetch_all(MYSQLI_ASSOC)[0]["Status"], "error" => false));
+result(json_encode(array("response" => $query->get_result()->fetch_all(MYSQLI_ASSOC)[0]["Status"], "error" => false)));

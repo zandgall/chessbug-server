@@ -14,4 +14,4 @@ $query->bind_param("issss", $_POST["match"], $_POST["username"], $_POST["passwor
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return all chats from region
-echo json_encode(array("response" => ($query->affected_rows > 0), "error" => false));
+result(json_encode(array("response" => ($query->affected_rows > 0), "error" => false)));

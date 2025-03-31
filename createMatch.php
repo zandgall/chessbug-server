@@ -23,4 +23,4 @@ checkpoint($query->execute(), "Database Query Failed", $query->error);
 $matchID = $query->insert_id;
 
 // Return necessary data for the client
-echo json_encode(array("response" => array("match" => $matchID, "chat" => $chatID), "error" => false));
+result(json_encode(array("response" => array("match" => $matchID, "chat" => $chatID), "error" => false)));

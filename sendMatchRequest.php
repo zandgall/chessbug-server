@@ -32,4 +32,4 @@ $query->bind_param("siss", $_POST["request"], $chatID, $white, $black);
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return all chats from region
-echo json_encode(array("response" => true, "error" => false));
+result(json_encode(array("response" => true, "error" => false)));

@@ -15,4 +15,4 @@ $query->bind_param("sss", $_POST["newPassword"], $_POST["username"], $_POST["pas
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return true
-echo json_encode(array("response" => true, "error" => false, "message" => "Account updated successfully!"));
+result(json_encode(array("response" => true, "error" => false, "message" => "Account updated successfully!")));

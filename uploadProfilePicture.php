@@ -46,4 +46,4 @@ $query->bind_param("sss", $uuid, $_POST["username"], $_POST["password"]);
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return the UUID of the successful profile picture upload
-echo json_encode(array("response" => $uuid, "error" => false));
+result(json_encode(array("response" => $uuid, "error" => false)));

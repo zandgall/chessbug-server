@@ -16,4 +16,4 @@ $query->bind_param("s", $_POST["username"]);
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return all clubs this user is a member of
-echo json_encode(array("response" => $query->get_result()->fetch_all(MYSQLI_ASSOC), "error" => false));
+result(json_encode(array("response" => $query->get_result()->fetch_all(MYSQLI_ASSOC), "error" => false)));

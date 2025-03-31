@@ -8,4 +8,4 @@ include "main.php";
 
 mainCheck();
 
-echo json_encode(array("response"=>true, "error"=>false, "message"=>"Logged In Successfully!"));
+result(json_encode(array("response" => true, "error" => false, "message" => "Logged In Successfully!")));

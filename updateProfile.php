@@ -17,4 +17,4 @@ $query->bind_param("sssss", $_POST["newUsername"], $_POST["newPassword"], $_POST
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return true
-echo json_encode(array("response" => true, "error" => false, "message" => "Account updated successfully!"));
+result(json_encode(array("response" => true, "error" => false, "message" => "Account updated successfully!")));

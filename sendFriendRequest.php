@@ -24,4 +24,4 @@ $query->bind_param("isss", $chatID, $_POST["username"], $_POST["password"], $_PO
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return all chats from region
-echo json_encode(array("response" => true, "error" => false));
+result(json_encode(array("response" => true, "error" => false)));

@@ -12,4 +12,4 @@ $query->bind_param("s", $_POST["target"]);
 checkpoint($query->execute(), "Database Query Failed", $query->error);
 
 // Return the UUID of the profile picture
-echo json_encode(array("response" => $query->get_result()->fetch_all(MYSQLI_ASSOC)[0]["pfp"], "error" => false));
+result(json_encode(array("response" => $query->get_result()->fetch_all(MYSQLI_ASSOC)[0]["pfp"], "error" => false)));
