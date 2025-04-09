@@ -8,6 +8,7 @@ $db = mainCheck();
 checkpoint(isset($_POST["newUsername"]), "Provide a new username!");
 checkpoint(isset($_POST["newPassword"]), "Provide a new password!");
 checkpoint(isset($_POST["newEmail"]), "Provide a new email!");
+checkpoint(isset($_POST["newBio"]), "Provide a new bio!")
 
 // Insert message
 $query = $db->prepare("UPDATE `User` SET `Name` = ?, `Password` = ?, `EmailAddress` = ? WHERE `Name` = ? AND `Password` = ?");
