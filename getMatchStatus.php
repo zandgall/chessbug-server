@@ -3,6 +3,15 @@ include "main.php";
 
 $db = mainCheck();
 
+$query = $db->prepare(
+	"SELECT MatchID From `ChessMatch`
+	INNER JOIN `User` ON (ChessMatch.WhitePlayer = User.UserID OR ChessMatch.BlackPlayer = User.UserID)
+	WHERE MatchID = ? AND User.Name = ?"
+);
+$query->bind_param("is", $_POST["match"], $_POST["username"]);
+checkpoint($query->execute(), "Database Query Failed", $query->error);
+checkpoint($query->get_result()->num_rows > 0, "User not in match requested!");
+
 // Gather the status of a match
 $query = $db->prepare("SELECT Status FROM `ChessMatch` WHERE `MatchID` = ?");
 $query->bind_param("i", $_POST["match"]);
