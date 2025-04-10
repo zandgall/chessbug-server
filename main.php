@@ -13,8 +13,6 @@ function mainCheck()
 
 	header('Content-Type: application/json; charset=utf-8');
 
-	$db = dbConnect();
-
 	$in = file_get_contents("php://input");
 	$_POST = json_decode($in, true);
 
@@ -26,11 +24,14 @@ function mainCheck()
 		checkpoint(json_last_error() == JSON_ERROR_NONE, "JSON decoding error!", $decrypted, json_last_error_msg());
 	}
 
+	$db = dbConnect();
+
 	// X Couldn't connect
 	checkpoint(!$db->connect_error, "Database Connection Failed", $db->connect_error);
 
 	// X Wasn't provided login details
 	checkpoint(isset($_POST["username"]) && isset($_POST["password"]), "Provide login details in order to retrieve data!");
+	checkpoint(!empty($_POST["username"]) && !empty($_POST["password"]), "Provide non-empty login details in order to retrieve data!");
 
 	// Check for user...
 	$login_check = $db->prepare("SELECT * FROM `User` WHERE `Name` = ? AND `Password` = ?");
